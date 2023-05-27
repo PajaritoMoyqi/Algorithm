@@ -115,6 +115,17 @@ void SLL_InsertAfter(Node* Current, Node* NewNode)
     Current->NextNode = NewNode;
 }
 
+void SLL_InsertNewHead(Node** Head, Node* NewHead)
+{
+    if ( Head == NULL )
+        (*Head) = NewHead;
+    else
+    {
+        NewHead->NextNode = (*Head);
+        (*Head) = NewHead;
+    }
+}
+
 int SLL_GetNodeCount(Node* Head)
 {
     int Count = 0;
