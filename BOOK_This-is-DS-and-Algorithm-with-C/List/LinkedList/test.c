@@ -36,8 +36,9 @@ int main( void )
     // Insert node
     Current = SLL_GetNodeAt(List, 2);
     NewNode = SLL_CreateNode(3000);
-
     SLL_InsertAfter(Current, NewNode);
+    NewNode = SLL_CreateNode(4000);
+    SLL_InsertBefore(&List, Current, NewNode);
 
     // Print list again
     Count = SLL_GetNodeCount(List);
@@ -59,6 +60,9 @@ int main( void )
             SLL_DestroyNode(Current);
         }
     }
+
+    // Or destory it at once
+    // SLL_DestroyAllNodes(&List);
 
     return 0;
 }

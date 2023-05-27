@@ -115,6 +115,19 @@ void SLL_InsertAfter(Node* Current, Node* NewNode)
     Current->NextNode = NewNode;
 }
 
+void SLL_InsertBefore(Node** Head, Node* Current, Node* NewNode)
+{
+    Node* PreviousNode = (*Head);
+
+    while ( PreviousNode != NULL )
+        if ( PreviousNode->NextNode == Current )
+            PreviousNode->NextNode = NewNode;
+        else
+            PreviousNode = PreviousNode->NextNode;
+
+    NewNode->NextNode = Current;
+}
+
 void SLL_InsertNewHead(Node** Head, Node* NewHead)
 {
     if ( Head == NULL )
@@ -138,4 +151,20 @@ int SLL_GetNodeCount(Node* Head)
     }
 
     return Count;
+}
+
+void SLL_DestroyAllNodes(Node** Head)
+{
+    Node* Current = *Head;
+    Node* Previous = NULL;
+
+    while ( Current != NULL )
+    {
+        Previous = Current;
+        Current = Current->NextNode;
+
+        free(Previous);
+    }
+    
+    free(Current);
 }
