@@ -1,2 +1,5 @@
 # C execution files
 *.exe
+
+# Ongoing problems folder
+/ongoing
