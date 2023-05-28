@@ -90,6 +90,8 @@ int CDLL_GetNodeCount( Node* Head )
         if ( Current == Head )
             break;
     }
+
+    return Count;
 }
 
 void PrintNode( Node* _Node )
