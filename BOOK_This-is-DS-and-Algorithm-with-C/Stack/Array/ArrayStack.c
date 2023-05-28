@@ -25,7 +25,7 @@ void AS_Push( ArrayStack* Stack, ElementType Data )
 
 ElementType AS_Pop( ArrayStack* Stack )
 {
-    int Position = Stack->Top--;
+    int Position = Stack->Top--; // -- is at back, so variable 'Position' gets Stack->pop as a value
     return Stack->Nodes[Position].Data;
 }
 
