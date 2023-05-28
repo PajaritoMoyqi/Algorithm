@@ -111,3 +111,18 @@ void PrintNode( Node* _Node )
     else
         printf("Next: %d\n", _Node->NextNode->Data);    
 }
+
+void PrintReverse( Node* Head )
+{
+    Node* Current = Head;
+    while ( Current->NextNode != NULL )
+        Current = Current->NextNode;
+
+    while ( Current->PrevNode != NULL )
+    {
+        printf( "Current Data: %d\n", Current->Data );
+        Current = Current->PrevNode;
+    }
+
+    printf( "Current Data: %d\n", Current->Data );
+}

@@ -36,6 +36,9 @@ int main( void )
         printf( "List[%d]: %d\n", i, Current->Data );
     }
 
+    // print reverse
+    PrintReverse( List );
+
     // Remove and destroy all nodes
     Count = DLL_GetNodeCount( List );
     for ( i = 0; i < Count; i++ )
