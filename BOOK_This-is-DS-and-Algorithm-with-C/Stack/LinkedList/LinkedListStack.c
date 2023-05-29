@@ -69,7 +69,7 @@ void LLS_DestroyStack ( LinkedListStack* Stack )
     while ( !LLS_IsEmpty( Stack ) )
     {
         Node* Popped = LLS_Pop( Stack );
-        LLS_DestoryNode( Popped );
+        LLS_DestroyNode( Popped );
     }
 
     free( Stack );
