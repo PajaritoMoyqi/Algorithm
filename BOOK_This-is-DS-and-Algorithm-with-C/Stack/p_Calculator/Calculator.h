@@ -19,4 +19,6 @@ int IsPrior( char OperatorInStack, char OperatorInToken );
 
 void GetPostfix( char* InfixExpression, char* PostfixExpression );
 
+double Calculate( char* PostfixExpression );
+
 #endif

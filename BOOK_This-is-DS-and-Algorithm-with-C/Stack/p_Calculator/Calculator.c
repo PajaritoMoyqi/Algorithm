@@ -145,3 +145,72 @@ void GetPostfix( char* InfixExpression, char* PostfixExpression )
 
     LLS_DestroyStack( Stack );
 }
+
+double Calculate( char* PostfixExpression )
+{
+    LinkedListStack* Stack;
+    Node* ResultNode;
+
+    double Result;
+    char Token[32];
+    int Type = -1;
+    unsigned int Read = 0;
+    unsigned int Length = strlen( PostfixExpression );
+
+    LLS_CreateStack( &Stack );
+
+    while ( Read < Length )
+    {
+        Read += GetNextToken( &PostfixExpression[Read], Token, &Type ); // also set token and type
+
+        if ( Type == SPACE )
+            continue;
+
+        if ( Type == OPERAND )
+        {
+            Node* NewNode = LLS_CreateNode(Token);
+            LLS_Push( Stack, Token );
+        }
+        else
+        {
+            char ResultString[32];
+            double Operator1, Operator2, TempResult;
+            Node* OperatorNode;
+
+            OperatorNode = LLS_Pop( Stack );
+            Operator2 = atof( OperatorNode->Data );
+            LLS_DestroyNode( OperatorNode );
+
+            OperatorNode = LLS_Pop( Stack );
+            Operator1 = atof( OperatorNode->Data );
+            LLS_DestroyNode( OperatorNode );
+
+            switch (Type)
+            {
+                case PLUS:
+                    TempResult = Operator1 + Operator2;
+                    break;
+                case MINUS:
+                    TempResult = Operator1 - Operator2;
+                    break;
+                case MULTIPLY:
+                    TempResult = Operator1 * Operator2;
+                    break;
+                case DIVIDE:
+                    TempResult = Operator1 / Operator2;
+                    break;
+            }
+
+            gcvt( TempResult, 10, ResultString );
+            LLS_Push( Stack, LLS_CreateNode( ResultString ) );
+        }
+    }
+
+    ResultNode = LLS_Pop( Stack );
+    Result = atof( ResultNode->Data );
+
+    LLS_DestroyNode( ResultNode );
+    LLS_DestroyStack( Stack );
+
+    return Result;
+}
