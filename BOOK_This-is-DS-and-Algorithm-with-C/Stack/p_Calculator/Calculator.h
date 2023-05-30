@@ -15,7 +15,8 @@ typedef enum
 // declaration of functions
 int IsNumber( char Cipher );
 unsigned int GetNextToken( char* Expression, char* Token, int* TYPE );
-int GetPriority( char Operator, int InStack );
 int IsPrior( char OperatorInStack, char OperatorInToken );
+
+void GetPostfix( char* InfixExpression, char* PostfixExpression );
 
 #endif
