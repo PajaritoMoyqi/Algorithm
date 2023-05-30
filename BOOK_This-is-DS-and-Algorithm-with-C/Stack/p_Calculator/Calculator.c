@@ -23,7 +23,7 @@ unsigned int GetNextToken( char* Expression, char* Token, int* TYPE )
     for ( i = 0; 0 != Expression[i]; i++ )
     {
         // save token in token array
-        Token[i] == Expression[i];
+        Token[i] = Expression[i];
 
         // set type
         if ( IsNumber( Expression[i] ) == 1 )
@@ -169,7 +169,7 @@ double Calculate( char* PostfixExpression )
         if ( Type == OPERAND )
         {
             Node* NewNode = LLS_CreateNode(Token);
-            LLS_Push( Stack, Token );
+            LLS_Push( Stack, NewNode );
         }
         else
         {
@@ -178,7 +178,7 @@ double Calculate( char* PostfixExpression )
             Node* OperatorNode;
 
             OperatorNode = LLS_Pop( Stack );
-            Operator2 = atof( OperatorNode->Data );
+            Operator2 = atof( OperatorNode->Data ); // string -> double
             LLS_DestroyNode( OperatorNode );
 
             OperatorNode = LLS_Pop( Stack );
@@ -201,13 +201,13 @@ double Calculate( char* PostfixExpression )
                     break;
             }
 
-            gcvt( TempResult, 10, ResultString );
+            gcvt( TempResult, 10, ResultString ); // double -> string
             LLS_Push( Stack, LLS_CreateNode( ResultString ) );
         }
     }
 
     ResultNode = LLS_Pop( Stack );
-    Result = atof( ResultNode->Data );
+    Result = atof( ResultNode->Data ); // string -> double
 
     LLS_DestroyNode( ResultNode );
     LLS_DestroyStack( Stack );
