@@ -7,7 +7,7 @@
 
 typedef struct tagNode
 {
-    char* Data;
+    char* Data; // to save string, not 1 chararacter
     struct tagNode* NextNode;
 } Node;
 
