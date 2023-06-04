@@ -16,6 +16,17 @@ void SBT_DestroyNode( SBTNode* Node )
     free( Node );
 }
 
+void SBT_DestroyTree( SBTNode* Node )
+{
+    if ( Node == NULL )
+        return;
+
+    SBT_DestroyTree( Node->Left );
+    SBT_DestroyTree( Node->Right );
+
+    SBT_DestroyNode( Node );
+}
+
 void SBT_PreorderPrintTree( SBTNode* Node )
 {
     if ( Node == NULL )
