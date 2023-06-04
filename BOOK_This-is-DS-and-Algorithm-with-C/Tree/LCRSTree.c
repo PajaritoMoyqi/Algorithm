@@ -59,5 +59,5 @@ void LCRS_PrintTree( LCRSNode* Node, int Depth )
         LCRS_PrintTree( Node->LeftChild, Depth + 1 );
 
     if ( Node->RightSibling != NULL )
-        LCRS_PrintTree( Node->RightSibling, Depth + 1 );
+        LCRS_PrintTree( Node->RightSibling, Depth );
 }
