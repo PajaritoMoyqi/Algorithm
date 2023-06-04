@@ -47,7 +47,7 @@ void ET_InorderPrintTree( ETNode* Node )
     printf( "(" );
     ET_InorderPrintTree( Node->Left );
 
-    printf( " %c", Node->Data );
+    printf( "%c", Node->Data );
 
     ET_InorderPrintTree( Node->Right );
     printf( ")" );
@@ -65,7 +65,7 @@ void ET_PostorderPrintTree( ETNode* Node )
     printf( " %c", Node->Data );
 }
 
-void BuildExpressionTree( char* PostfixExpression, ETNode** Node )
+void ET_BuildExpressionTree( char* PostfixExpression, ETNode** Node )
 {
     int len = strlen( PostfixExpression );
     char Token = PostfixExpression[ len - 1 ];
