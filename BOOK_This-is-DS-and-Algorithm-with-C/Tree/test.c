@@ -30,5 +30,7 @@ int main()
 
     LCRS_PrintTree( Root, 0 );
 
+    LCRS_PrintNodesAtLevel( Root, 1 );
+
     LCRS_DestroyTree( Root );
 }
