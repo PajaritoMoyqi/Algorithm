@@ -10,7 +10,7 @@ DisjointSet* DS_FindSet( DisjointSet* Set )
 
 void DS_UnoinSet( DisjointSet* Parent, DisjointSet* Child )
 {
-    Child = DS_FindeSet(Child);
+    Child = DS_FindSet( Child );
     Child->Parent = Parent;
 }
 

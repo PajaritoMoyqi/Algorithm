@@ -6,7 +6,7 @@
 
 typedef struct tagDisjointSet
 {
-    struct tagDisjoitSet* Parent;
+    struct tagDisjointSet* Parent;
     void* Data; // to set data in any type
 } DisjointSet;
 
