@@ -26,7 +26,7 @@ void BST_DestroyTree( BSTNode* Tree )
     Tree->Left = NULL;
     Tree->Right = NULL;
 
-    BST_DestroyTree( Tree );
+    BST_DestroyNode( Tree );
 }
 
 BSTNode* BST_SearchNode( BSTNode* Tree, ElementType Target )
@@ -51,6 +51,18 @@ BSTNode* BST_SearchMinNode( BSTNode* Tree )
         return Tree;
     else
         return BST_SearchMinNode( Tree->Left );
+}
+
+void BST_InorderPrintTree( BSTNode* Node )
+{
+    if ( Node == NULL )
+        return;
+
+    BST_InorderPrintTree( Node->Left );
+
+    printf( "%d ", Node->Data );
+
+    BST_InorderPrintTree( Node->Right );
 }
 
 void BST_InsertNode( BSTNode* Tree, BSTNode* NewNode )

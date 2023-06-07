@@ -20,7 +20,11 @@ void BST_DestroyTree( BSTNode* Tree );
 
 BSTNode* BST_SearchNode( BSTNode* Tree, ElementType Target );
 BSTNode* BST_SearchMinNode( BSTNode* Tree );
+
+void BST_InorderPrintTree( BSTNode* Node );
+
 void BST_InsertNode( BSTNode* Tree, BSTNode* NewNode );
+
 BSTNode* BST_RemoveNode( BSTNode* Tree, BSTNode* Parent, ElementType Target );
 
 #endif
