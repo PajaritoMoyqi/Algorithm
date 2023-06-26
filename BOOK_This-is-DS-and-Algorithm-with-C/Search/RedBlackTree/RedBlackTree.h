@@ -25,6 +25,12 @@ void RBT_DestroyTree( RBTNode* Tree );
 RBTNode* RBT_SearchNode( RBTNode* Tree, ElementType Target );
 RBTNode* RBT_SearchMinNode( RBTNode* Tree );
 
+void RBT_InsertNode( RBTNode** Tree, RBTNode* NewNode );
+void RBT_InsertNodeHelper( RBTNode** Tree, RBTNode* NewNode );
 
+void RBT_RotateRight( RBTNode** Root, RBTNode* Parent );
+void RBT_RotateLeft( RBTNode** Root, RBTNode* Parent );
+
+void RBT_RebuildAfterInsert( RBTNode** Root, RBTNode* X );
 
 #endif
