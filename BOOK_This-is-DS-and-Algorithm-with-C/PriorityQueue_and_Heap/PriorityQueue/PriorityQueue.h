@@ -23,7 +23,7 @@ typedef struct tagPriorityQueue
 PriorityQueue* PQ_Create( int InitialSize );
 void PQ_Destory( PriorityQueue* PQ );
 
-void PQ_PQ_Enqueue( PriorityQueue* PQ, PQNode NewNode );
+void PQ_Enqueue( PriorityQueue* PQ, PQNode NewNode );
 
 void PQ_SwapNodes( PriorityQueue* PQ, int Index1, int Index2 );
 
