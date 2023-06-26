@@ -21,6 +21,7 @@ typedef struct tagHashTable
 
 HashTable* SHT_CreateHashTable( int TableSize );
 
+void SHT_Set( HashTable* HT, KeyType Key, ValueType Value );
 void SHT_Get( HashTable* HT, KeyType Key );
 void SHT_DestroyHashTable( HashTable* HT );
 int SHT_Hash( KeyType Key, int TableSize );
