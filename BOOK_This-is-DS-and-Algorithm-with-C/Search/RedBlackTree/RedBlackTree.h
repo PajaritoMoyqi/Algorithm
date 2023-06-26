@@ -36,6 +36,6 @@ void RBT_RebuildAfterInsert( RBTNode** Root, RBTNode* X );
 RBTNode* RBT_RemoveNode( RBTNode** Root, ElementType Data );
 void RBT_RebuildAfterRemove( RBTNode** Root, RBTNode* Successor );
 
-
+void RBT_PrintTree( RBTNode* Node, int Depth, int BlackCount );
 
 #endif
