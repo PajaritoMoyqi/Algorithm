@@ -208,3 +208,165 @@ void RBT_RebuildAfterInsert( RBTNode** Root, RBTNode* X )
 
     (*Root)->Color = BLACK;
 }
+
+RBTNode* RBT_RemoveNode( RBTNode** Root, ElementType Data )
+{
+    RBTNode* Removed = NULL;
+    RBTNode* Successor = NULL; // duplicated black node
+    RBTNode* Target = RBT_SearchNode( (*Root), Data );
+
+    if( Target == NULL )
+        return NULL;
+    
+    if( Target->Left == Nil || Target->Right == Nil )
+        Removed == Target;
+    else
+    {
+        // basic remove algorithm for binary tree
+        Removed = RBT_SearchMinNode( Target->Right );
+        Target->Data = Removed->Data;
+    }
+
+    // copy relational data of removed node to successor node
+    if( Removed->Left != Nil )
+        Successor = Removed->Left;
+    else
+        Successor = Removed->Right;
+
+    Successor->Parent = Removed->Parent;
+
+    if( Removed->Parent == NULL )
+        (*Root) = Successor;
+    else
+    {
+        if( Removed == Removed->Parent->Left )
+            Removed->Parent->Left = Successor;
+        else
+            Removed->Parent->Right = Successor;
+    }
+
+    if( Removed->Color == BLACK )
+        RBT_RebuildAfterRemove( Root, Successor );
+
+    return Removed;
+}
+
+void RBT_RebuildAfterRemove( RBTNode** Root, RBTNode* Successor )
+{
+    RBTNode* Sibling = NULL;
+
+    while( Successor->Parent != NULL && Successor->Color == BLACK )
+    {
+        if( Successor == Successor->Parent->Left )
+        {
+            Sibling = Successor->Parent->Right;
+
+            if( Sibling->Color == RED )
+            {
+                Sibling->Color = BLACK;
+                Successor->Parent->Color = RED;
+                RBT_RotateLeft( Root, Successor->Parent );
+            }
+            else
+            {
+                if( Sibling->Left->Color == BLACK && Sibling->Right->Color == BLACK )
+                {
+                    Sibling->Color = RED;
+                    Successor = Successor->Parent;
+                }
+                else
+                {
+                    if( Sibling->Left->Color == RED )
+                    {
+                        Sibling->Left->Color = BLACK;
+                        Sibling->Color = RED;
+
+                        RBT_RotateRight( Root, Sibling );
+                        Sibling = Successor->Parent->Right;
+                    }
+
+                    Sibling->Color = Successor->Parent->Color;
+                    Successor->Parent->Color = BLACK;
+                    Sibling->Right->Color = BLACK;
+                    RBT_RotateLeft( Root, Successor->Parent );
+                    Successor = (*Root);
+                }
+            }
+        }
+        else
+        {
+            Sibling = Successor->Parent->Left;
+
+            if( Sibling->Color == RED )
+            {
+                Sibling->Color = BLACK;
+                Successor->Parent->Color = RED;
+                RBT_RotateRight( Root, Successor->Parent );
+            }
+            else
+            {
+                if( Sibling->Left->Color == BLACK && Sibling->Right->Color == BLACK )
+                {
+                    Sibling->Color = RED;
+                    Successor = Successor->Parent;
+                }
+                else
+                {
+                    if( Sibling->Right->Color == RED )
+                    {
+                        Sibling->Right->Color = BLACK;
+                        Sibling->Color = RED;
+
+                        RBT_RotateLeft( Root, Sibling );
+                        Sibling = Successor->Parent->Left;
+                    }
+
+                    Sibling->Color = Successor->Parent->Color;
+                    Successor->Parent->Color = BLACK;
+                    Sibling->Left->Color = BLACK;
+                    RBT_RotateRight( Root, Successor->Parent );
+                    Successor = (*Root);
+                }
+            }
+        }
+    }
+
+    Successor->Color = BLACK;
+}
+
+void RBT_PrintTree( RBTNode* Node, int Depth, int BlackCount )
+{
+    int i = 0;
+    char c = 'X';
+    int v = -1;
+    char cnt[100];
+
+    if( Node == NULL || Node == Nil )
+        return;
+
+    if( Node->Color == BLACK )
+        BlackCount++;
+    
+    if( Node->Parent != NULL )
+    {
+        v = Node->Parent->Data;
+
+        if( Node->Parent->Left == Node )
+            c = 'L';
+        else
+            c = 'R';
+    }
+
+    if( Node->Left == Nil && Node->Right == Nil )
+        sprintf( cnt, "-------- %d", BlackCount );
+    else
+        strncpy( cnt, "", sizeof( cnt ) );
+
+    for( i = 0; i < Depth; i++ )
+        printf( "  " );
+
+    printf( "%d %s [%c, %d] %s\n", Node->Data, (Node->Color == RED) ? "RED": "BLACK", c, v, cnt );
+
+    RBT_PrintTree( Node->Left, Depth + 1, BlackCount );
+    RBT_PrintTree( Node->Right, Depth + 1, BlackCount );
+}

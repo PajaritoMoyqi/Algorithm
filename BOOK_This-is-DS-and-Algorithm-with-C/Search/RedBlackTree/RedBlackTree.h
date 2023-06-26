@@ -33,4 +33,9 @@ void RBT_RotateLeft( RBTNode** Root, RBTNode* Parent );
 
 void RBT_RebuildAfterInsert( RBTNode** Root, RBTNode* X );
 
+RBTNode* RBT_RemoveNode( RBTNode** Root, ElementType Data );
+void RBT_RebuildAfterRemove( RBTNode** Root, RBTNode* Successor );
+
+
+
 #endif
