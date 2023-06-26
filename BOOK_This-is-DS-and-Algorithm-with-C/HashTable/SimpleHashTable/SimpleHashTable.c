@@ -17,7 +17,7 @@ void SHT_Set( HashTable* HT, KeyType Key, ValueType Value )
     HT->Table[Address].Value = Value;
 }
 
-void SHT_Get( HashTable* HT, KeyType Key )
+ValueType SHT_Get( HashTable* HT, KeyType Key )
 {
     int Address = SHT_Hash( Key, HT->TableSize );
 
