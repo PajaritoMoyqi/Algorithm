@@ -68,7 +68,7 @@ void AddVertex( Graph* G, Vertex* V )
 {
     Vertex* VertexList = G->Vertices;
 
-    if( VertexList = NULL )
+    if( VertexList == NULL )
         G->Vertices = V;
     else
     {
