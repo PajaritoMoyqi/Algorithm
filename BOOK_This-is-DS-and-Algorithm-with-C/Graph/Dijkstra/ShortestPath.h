@@ -6,6 +6,6 @@
 
 #define MAX_WEIGHT 36267
 
-void Dijkstra( Graph* G, Vertex* StartVertex, Graph* MST )
+void Dijkstra( Graph* G, Vertex* StartVertex, Graph* MST );
 
 #endif
