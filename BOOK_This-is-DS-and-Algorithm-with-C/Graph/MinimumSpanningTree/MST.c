@@ -119,7 +119,7 @@ void Kruskal( Graph* G, Graph* MST )
         i++;
     }
 
-    while( PQ_IsEmpty( PQ ) )
+    while( !PQ_IsEmpty( PQ ) )
     {
         Edge* CurrentEdge;
         int FromIndex;
@@ -139,7 +139,7 @@ void Kruskal( Graph* G, Graph* MST )
             AddEdge( MSTVertices[FromIndex], CreateEdge( MSTVertices[FromIndex], MSTVertices[ToIndex], CurrentEdge->Weight ) );
             AddEdge( MSTVertices[ToIndex], CreateEdge( MSTVertices[ToIndex], MSTVertices[FromIndex], CurrentEdge->Weight ) );
 
-            DS_UnoinSet( MSTVertices[ToIndex], CreateEdge( MSTVertices[ToIndex], MSTVertices[FromIndex], CurrentEdge->Weight ) );
+            DS_UnoinSet( VertexSet[FromIndex], VertexSet[ToIndex] );
         }
     }
 
