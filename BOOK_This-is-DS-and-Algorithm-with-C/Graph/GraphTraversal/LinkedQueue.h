@@ -4,10 +4,11 @@
 # include <stdio.h>
 # include <string.h>
 # include <stdlib.h>
+#include "Graph.h"
 
 typedef struct tagNode
 {
-    char* Data; // to save string, not 1 chararacter
+    Vertex* Data;
     struct tagNode* NextNode;
 } Node;
 
@@ -21,7 +22,7 @@ typedef struct tagLinkedQueue
 // functions
 void LQ_CreateQueue( LinkedQueue** Queue );
 void LQ_DestroyQueue( LinkedQueue* Queue );
-Node* LQ_CreateNode( char* NewData );
+Node* LQ_CreateNode( Vertex* V );
 void LQ_DestroyNode( Node* _Node );
 void LQ_Enqueue( LinkedQueue* Queue, Node* NewNode );
 Node* LQ_Dequeue( LinkedQueue* Queue );

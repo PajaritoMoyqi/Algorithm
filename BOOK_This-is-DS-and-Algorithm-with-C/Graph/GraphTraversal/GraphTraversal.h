@@ -4,6 +4,7 @@
 # include "LinkedQueue.h"
 # include "Graph.h"
 
-
+void DFS( Vertex* V );
+void BFS( Vertex* V, LinkedQueue* Queue );
 
 #endif

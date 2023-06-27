@@ -20,12 +20,10 @@ void LQ_DestroyQueue( LinkedQueue* Queue )
     free( Queue );
 }
 
-Node* LQ_CreateNode( char* NewData )
+Node* LQ_CreateNode( Vertex* V )
 {
     Node* NewNode = (Node*)malloc( sizeof( Node ) );
-    NewNode->Data = (char*)malloc( sizeof( NewData ) + 1 );
-
-    strcpy( NewNode->Data, NewData );
+    NewNode->Data = V;
 
     NewNode->NextNode = NULL;
 
