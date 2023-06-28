@@ -32,5 +32,5 @@ void PrintChange( int CoinUnits[], int Change[], int Size )
     int i = 0;
 
     for ( i = 0; i < Size; i++ )
-        printf( "%8 won: %d\n", CoinUnits[i], Change[i] );
+        printf( "%8d won: %d\n", CoinUnits[i], Change[i] );
 }
