@@ -6,7 +6,7 @@ int KarpRabin( char* Text, int TextSize, int Start, char* Pattern, int PatternSi
 {
     int i = 0;
     int j = 0;
-    int Coefficient = pow( 2, PatternSize -1 );
+    int Coefficient = pow( 2, PatternSize - 1 );
     int HashText = Hash( Text, PatternSize );
     int HashPattern = Hash( Pattern, PatternSize );
 
@@ -18,7 +18,7 @@ int KarpRabin( char* Text, int TextSize, int Start, char* Pattern, int PatternSi
         {
             for ( j = 0; j < PatternSize; j++ )
             {
-                if ( Text[i+j] != Pattern[i] )
+                if ( Text[i+j] != Pattern[j] )
                     break;
             }
 
