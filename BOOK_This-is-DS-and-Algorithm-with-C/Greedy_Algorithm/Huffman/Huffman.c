@@ -21,9 +21,9 @@ void Huffman_DestroyTree( HuffmanNode* N )
     if ( N == NULL )
         return;
 
-    free( N->Left );
-    free( N->Right );
-    free( N );
+    Huffman_DestroyTree( N->Left );
+    Huffman_DestroyTree( N->Right );
+    Huffman_DestroyNode( N );
 }
 
 void Huffman_AddBit( BitBuffer* Buffer, char Bit )
@@ -58,7 +58,7 @@ void Huffman_BuildCodeTable( HuffmanNode* Tree, HuffmanCode CodeTable[MAX_CHAR],
     }
     if ( Tree->Right != NULL )
     {
-        Code[Size] = 0;
+        Code[Size] = 1;
         Huffman_BuildCodeTable( Tree->Right, CodeTable, Code, Size + 1 );
     }
     if ( Tree->Right == NULL && Tree->Left == NULL )
@@ -160,7 +160,7 @@ void Huffman_Encode( HuffmanNode** Tree, UCHAR* Source, BitBuffer* Encoded, Huff
 void Huffman_Decode( HuffmanNode* Tree, BitBuffer* Encoded, UCHAR* Decoded )
 {
     int i;
-    int Index;
+    int Index = 0;
     HuffmanNode* Current = Tree;
 
     for ( i = 0; i <= Encoded->Size; i++ )
