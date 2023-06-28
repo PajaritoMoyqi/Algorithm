@@ -10,8 +10,11 @@ void Preprocess( char* Pattern, int PatternSize, int* Border )
 
     while( i < PatternSize )
     {
-        while( j > -1 && Pattern[i] != Pattern[j] )
+        while( j > -1
+            && Pattern[i] != Pattern[j] )
+        {
             j = Border[j];
+        }
 
         i++;
         j++;
@@ -26,7 +29,7 @@ int KMP( char* Text, int TextSize, int Start, char* Pattern, int PatternSize )
     int j = 0;
     int Position = -1;
 
-    int* Border = (int*)calloc( sizeof( PatternSize + 1 ), sizeof( int ) );
+    int* Border = (int*)calloc( PatternSize + 1, sizeof( int ) );
 
     Preprocess( Pattern, PatternSize, Border );
 
