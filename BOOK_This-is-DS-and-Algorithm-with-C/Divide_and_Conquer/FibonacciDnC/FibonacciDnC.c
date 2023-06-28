@@ -16,7 +16,7 @@ int main( void )
     int N = 46;
     ULONG Result = Fibonacci( N );
 
-    printf( "Fibonacci(%d) = %ul\n", N, Result );
+    printf( "Fibonacci(%d) = %lu\n", N, Result );
     
     return 0;
 }
