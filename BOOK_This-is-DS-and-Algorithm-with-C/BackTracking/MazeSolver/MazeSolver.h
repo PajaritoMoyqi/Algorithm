@@ -15,7 +15,7 @@
 #define MARKED '+'
 
 enum DIRECTION { NORTH, SOUTH, EAST, WEST };
-enum RESUlT { FAIL, SUCCESS };
+enum RESULT { FAIL, SUCCESS };
 
 typedef struct tagPosition
 {

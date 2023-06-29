@@ -28,13 +28,13 @@ int Solve( MazeInfo* Maze )
         return FAIL;
     
     if ( MoveTo( Maze, &Start, NORTH ) )
-        Result == SUCCESS;
+        Result = SUCCESS;
     else if ( MoveTo( Maze, &Start, SOUTH ) )
-        Result == SUCCESS;
-    else if ( MoveTo( Maze, &Start, WEST ) )
-        Result == SUCCESS;
+        Result = SUCCESS;
     else if ( MoveTo( Maze, &Start, EAST ) )
-        Result == SUCCESS;
+        Result = SUCCESS;
+    else if ( MoveTo( Maze, &Start, WEST ) )
+        Result = SUCCESS;
 
     Maze->Data[Start.Y][Start.X] = START;
 
@@ -104,7 +104,7 @@ int GetNextStep( MazeInfo* Maze, Position* Current, int Direction, Position* Nex
     if (Maze->Data[Next->Y][Next->X] == WALL)   return FAIL;
     if (Maze->Data[Next->Y][Next->X] == MARKED)   return FAIL;
 
-    retrun SUCCESS;
+    return SUCCESS;
 }
 
 int GetMaze( char* FilePath, MazeInfo* Maze )
@@ -117,7 +117,7 @@ int GetMaze( char* FilePath, MazeInfo* Maze )
     FILE* fp;
     char buffer[MAX_BUFFER];
 
-    if ( (fp = open( FilePath, "r" )) == NULL )
+    if ( (fp = fopen( FilePath, "r" )) == NULL )
     {
         printf( "Can't open file: %s\n", FilePath );
         return FAIL;
