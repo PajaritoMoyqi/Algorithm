@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 
+#define MAX 1000000
+
 int main( void )
 {
-    const int MAX = 1000000;
-
     int primes[MAX+1];
     primes[0] = primes[1] = 0;
 
@@ -23,13 +23,10 @@ int main( void )
 
     int givenNumber, bigNumber, smallNumber, flag;
     scanf( "%d", &givenNumber );
-    printf( "%d: ", givenNumber );
-    printf( "start\n" );
 
-    while ( givenNumber != 0 );
+    while ( givenNumber != 0 )
     {
         flag = 0;
-        printf( "start\n" );
         bigNumber = givenNumber - 3;
         smallNumber = 3;
 
@@ -43,7 +40,7 @@ int main( void )
                 break;
             }
             else
-            {
+            {   
                 smallNumber += 2;
                 bigNumber -= 2;
             }
@@ -51,7 +48,7 @@ int main( void )
 
         if ( !flag )
             printf( "Goldbach's conjecture is wrong.\n" );
-
+        
         scanf( "%d", &givenNumber );
     }
 
