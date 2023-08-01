@@ -26,8 +26,6 @@ int main( void )
 
             price >>= 1;
             friendMoney >>= 1;
-
-            printf( "loop\n" );
         }
 
         printf( "Thanks" );
