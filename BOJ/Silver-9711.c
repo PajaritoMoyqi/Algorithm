@@ -72,7 +72,7 @@ long long fib( long long n, long long modInt )
 
     A = Matrix2x2Pow( A, n, modInt );
 
-    printf( "%lld-th, %lld, %lld, %lld, %lld\n", n, A.Data[0][0], A.Data[0][1], A.Data[1][0], A.Data[1][1] );
+    // printf( "%lld-th, %lld, %lld, %lld, %lld\n", n, A.Data[0][0], A.Data[0][1], A.Data[1][0], A.Data[1][1] );
 
     return A.Data[0][1];
 }
