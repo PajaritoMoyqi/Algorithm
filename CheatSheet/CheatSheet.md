@@ -115,6 +115,7 @@ Matrix2x2 Matrix2x2Pow( Matrix2x2 A, long long n )
 
 long long fib( long long n )
 {
+    if ( !n ) return 0;
     Matrix2x2 A;
     A.Data[0][0] = 1;
     A.Data[1][0] = 1;
