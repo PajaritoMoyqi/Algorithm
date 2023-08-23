@@ -33,7 +33,6 @@ int main( void )
     printf( "%d\n", LCS( x, y, xLen, yLen, &Table ) );
     traceLCS( x, y, xLen, yLen, &Table );
     
-    printf( "%s", ans );
     for ( i = 0; i < strlen( ans )/2; i++ )
     {
         char tmp;
