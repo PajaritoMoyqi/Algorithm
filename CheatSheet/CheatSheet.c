@@ -114,7 +114,6 @@ char* bigIntAdd ( char A[], char B[]  ) // with reverseArr
 
 long long power3( long long number )
 {
-    long long result;
     if ( number == 0 ) return 1;
     else
         return 3 * power3( number - 1 );
