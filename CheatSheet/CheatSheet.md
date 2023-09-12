@@ -1,3 +1,50 @@
+## Categorized Methods
+
+### DP
+
+#### Make sum array
+
+```c
+int isPrime[MAX+1];
+int primeSum[MAX+1];
+int FermatSum[MAX+1];
+
+int main( void )
+{
+    int i;
+    for ( i = 2; i <= MAX; i++ )
+        isPrime[i] = 1;
+
+    for ( i = 2; i <= sqrt(MAX); i++ )
+    {
+        if ( isPrime[i] == 0 )
+            continue;
+        
+        int mult;
+        for ( mult = 2; i*mult <= MAX; mult++ )
+            isPrime[i*mult] = 0;
+    }
+    for ( i = 2; i <= MAX ; i++ )
+    {
+        if ( isPrime[i] ) primeSum[i] = primeSum[i-1] + 1;
+        else primeSum[i] = primeSum[i-1];
+
+        if ( isPrime[i] && ( i % 4 == 1 || i == 2 ) ) FermatSum[i] = FermatSum[i-1] + 1;
+        else FermatSum[i] = FermatSum[i-1];
+    }
+
+    return 0;
+}
+```
+
+#### use vector(C++)
+
+```cpp
+
+```
+
+## Specific Methods
+
 ### string
 
 #### substring
