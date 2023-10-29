@@ -1,4 +1,4 @@
-#include "ArrayStack.h"
+#include "AStack.h"
 
 void CreateAS( ArrayStack** Stack, int capacity )
 {
