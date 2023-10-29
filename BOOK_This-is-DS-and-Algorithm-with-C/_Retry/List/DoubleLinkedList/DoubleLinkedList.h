@@ -1,5 +1,5 @@
-#ifndef LINKEDLIST_H
-#define LINKEDLIST_H
+#ifndef DOUBLELINKEDLIST_H
+#define DOUBLELINKEDLIST_H
 
 # include <stdio.h>
 # include <stdlib.h>
