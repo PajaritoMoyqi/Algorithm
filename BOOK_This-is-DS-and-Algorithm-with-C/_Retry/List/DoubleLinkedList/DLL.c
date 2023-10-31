@@ -1,4 +1,4 @@
-#include "DoubleLinkedList.h"
+#include "DLL.h"
 
 DLLNode* CreateDLLNode( Element data )
 {
@@ -18,10 +18,11 @@ void AppendDLLNode( DLLNode** Head, DLLNode* New )
     else
     {
         DLLNode* Tail = (*Head);
-        while ( Tail->NextDLLNode == NULL )
+        while ( Tail->NextDLLNode != NULL )
             Tail = Tail->NextDLLNode;
 
         Tail->NextDLLNode = New;
+        New->PrevDLLNode = Tail;
     }
 }
 
@@ -57,7 +58,6 @@ void RemoveDLLNode( DLLNode** Head, DLLNode* Target )
     }
     else
     {
-        DLLNode* Tmp = Target;
         if ( Target->PrevDLLNode != NULL )
             Target->PrevDLLNode->NextDLLNode = Target->NextDLLNode;
 

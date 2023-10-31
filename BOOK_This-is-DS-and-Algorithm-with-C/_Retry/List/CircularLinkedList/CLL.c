@@ -1,4 +1,4 @@
-#include "CircularLinkedList.h"
+#include "CLL.h"
 
 CLLNode* CreateCLLNode( Element data )
 {
