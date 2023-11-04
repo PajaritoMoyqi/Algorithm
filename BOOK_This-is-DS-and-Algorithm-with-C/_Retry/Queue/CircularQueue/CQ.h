@@ -21,5 +21,9 @@ typedef struct CQ
 } CQ;
 
 // declarations
+void CreateCQ( CQ** Queue, int cap );
+void CQEnqueue( CQ* Queue, ElementType data );
+ElementType CQDequeue( CQ* Queue );
+void DestroyCQ( CQ* Queue );
 
 #endif
