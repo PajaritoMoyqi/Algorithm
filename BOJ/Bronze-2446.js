@@ -1,0 +1,19 @@
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.on('line', line => {
+
+let num = Number(line);
+
+for(let i=1;i<=num;i++){
+  console.log(' '.repeat(i-1)+'*'.repeat(2*num-2*i+1));
+}
+for(let i=num-1;i>=1;i--){
+  console.log(' '.repeat(i-1)+'*'.repeat(2*num-2*i+1));
+}
+}).on('close', () => {
+process.exit();
+})
