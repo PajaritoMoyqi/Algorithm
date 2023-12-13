@@ -33,16 +33,16 @@ void InorderPrintBT( BTNode* N )
 {
     if ( N == NULL ) return;
 
-    PreorderPrintBT( N->Left );
+    InorderPrintBT( N->Left );
     printf( " %c", N->Data );
-    PreorderPrintBT( N->Right );
+    InorderPrintBT( N->Right );
 }
 
 void PostorderPrintBT( BTNode* N )
 {
     if ( N == NULL ) return;
 
-    PreorderPrintBT( N->Left );
-    PreorderPrintBT( N->Right );
+    PostorderPrintBT( N->Left );
+    PostorderPrintBT( N->Right );
     printf( " %c", N->Data );
 }
