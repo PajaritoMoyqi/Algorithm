@@ -258,6 +258,29 @@ int cmp( const void* _elem1, const void* _elem2 )
 }
 ```
 
+#### binary search
+
+```c
+int BSearch( int Set[], int len, int target )
+{
+    int leftIdx = 0, rightIdx = len, middle;
+    while ( rightIdx > leftIdx )
+    {
+        middle = (leftIdx + rightIdx) / 2;
+        Set[middle] > target ? rightIdx = middle : (leftIdx = middle + 1);
+    }
+    
+    int tmp = rightIdx;
+    leftIdx = 0, rightIdx = len;
+    while ( rightIdx > leftIdx )
+    {
+        middle = (leftIdx + rightIdx) / 2;
+        Set[middle] >= target ? rightIdx = middle : (leftIdx = middle + 1);
+    }
+    return tmp - rightIdx;
+}
+```
+
 ### Reverse array
 
 ```c
