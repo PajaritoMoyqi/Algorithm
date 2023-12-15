@@ -28,7 +28,7 @@ int main( void )
         
         prev = pos;
 
-        printf( "i: %d, max: %d\n", i, max );
+        // printf( "i: %d, max: %d\n", i, max );
     }
 
     if ( len - pos > max )
