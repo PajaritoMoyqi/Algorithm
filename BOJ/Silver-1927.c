@@ -1,4 +1,20 @@
-#include "PQueue.h"
+#include <stdio.h>
+#include <memory.h>
+#include <stdlib.h>
+
+typedef int ElemType;
+
+typedef struct PQNode
+{
+    ElemType Data;
+} PQNode;
+
+typedef struct PQueue
+{
+    PQNode* Nodes;
+    int Capacity;
+    int UsedSize;
+} PQueue;
 
 PQueue* Create( int size )
 {
@@ -105,4 +121,43 @@ void Dequeue( PQueue* PQ, PQNode* RemovedRoot )
         PQ->Capacity /= 2;
         PQ->Nodes = (PQNode*)realloc( PQ->Nodes, sizeof( PQNode ) * PQ->Capacity );
     }
+}
+
+int main( void )
+{
+    int n, givenNum;
+    scanf( "%d", &n );
+
+    PQueue* PQ = Create( n );
+    
+    while ( n-- )
+    {
+        PQNode Popped;
+        scanf( "%d", &givenNum );
+
+        if ( !givenNum )
+        {
+            if ( !(PQ->UsedSize) )
+            {
+                printf( "0\n" );
+            }
+            else
+            {
+                Dequeue( PQ, &Popped );
+                printf( "%d\n", Popped.Data );
+            }
+        }
+        else
+        {
+            Enqueue( PQ, givenNum );
+        }
+
+        // int i;
+        // for ( i = 0; i <= PQ->UsedSize; i++ )
+        //     printf( "%d ", PQ->Nodes[i].Data );
+
+        // puts( "" );
+    }
+
+    return 0;
 }
