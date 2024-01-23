@@ -28,26 +28,26 @@ int main( void )
     return 0;
 }
 
-void DFS( int idx, int vertices )
+void DFS( int startIdx, int vertices )
 {
-    DFS_Visited[idx] = 1;
-    printf( "%d ", idx );
+    DFS_Visited[startIdx] = 1;
+    printf( "%d ", startIdx );
 
     int i;
     for ( i = 1; i <= vertices; i++ )
     {
-        if ( Graph[idx][i] == 1 && !DFS_Visited[i] )
+        if ( Graph[startIdx][i] == 1 && !DFS_Visited[i] )
             DFS( i, vertices );
     }
 }
-void BFS( int idx, int vertices )
+void BFS( int startIdx, int vertices )
 {
     int front, rear;
     front = rear = 0;
 
-    printf( "%d ", idx );
-    BFS_Visited[idx] = 1;
-    Queue[rear++] = idx;
+    printf( "%d ", startIdx );
+    BFS_Visited[startIdx] = 1;
+    Queue[rear++] = startIdx;
 
     int i, pop;
     while ( front < rear )
