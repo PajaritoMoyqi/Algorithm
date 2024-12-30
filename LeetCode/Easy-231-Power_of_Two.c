@@ -1,3 +1,5 @@
+#include <stdbool.h>
+
 bool isPowerOfTwo( int n )
 {
     if ( n <= 0 )
