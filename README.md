@@ -4,8 +4,8 @@ This is a repository for codes for algorithm websites and for books about algori
 
 #### Websites
 
-- LeetCode <img src="https://img.shields.io/badge/ENG-F7DF1E?style=flat-square&logoColor=white"/>
-- BaekJoon Online Judge(BOJ) <img src="https://img.shields.io/badge/KOR-CD2E3A?style=flat-square&logoColor=white"/>
+- [LeetCode](https://leetcode.com/ "LeetCode") <img src="https://img.shields.io/badge/ENG-F7DF1E?style=flat-square&logoColor=white"/>
+- [BaekJoon Online Judge(BOJ)](https://www.acmicpc.net/ "BOJ") <img src="https://img.shields.io/badge/KOR-CD2E3A?style=flat-square&logoColor=white"/>
 
 #### Books
 
